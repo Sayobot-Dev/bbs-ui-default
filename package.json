@@ -1,0 +1,14 @@
+{
+  "name": "bbs-ui-default",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sayobot-dev/bbs-ui-default.git",
+  "author": "masnn <masnn0@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  },
+  "scripts": {
+    "postinstall": "node ./install.js"
+  }
+}
