@@ -3,5 +3,5 @@
 {% block body %}
     <h1>{{user.uname}}</h1>
     Regip:{{user.regip}}
-    RegTime:{{new Date(user._id.generationTime*1000).toLocaleString()}}
+    RegTime:{{user._id.generationTime}}
 {% endblock %}

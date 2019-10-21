@@ -118,7 +118,7 @@
     {% if user.hasPerm(PERM_THREAD_REPLY) %}
         <form id="comment" method="POST" action="/t/{{thread._id.toHexString()}}/comment">
             Your comment here:<input type="text" name="content"></input>
-            <button type="submit">Submit</button>
+            <button type="submit">{{ _('Submit') }}</button>
         </form>
     {% endif %}
 {% endblock %}
