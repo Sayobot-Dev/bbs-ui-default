@@ -1,0 +1,22 @@
+{% set title = "Sayobot" %}
+{% set path_components = [
+    {
+        url: '/',
+        name: 'Home'
+    }
+] %}
+{% extends "layout/basic.html" %}
+{% block content %}
+    <div class="row">
+        <div class="medium-9 columns">
+            <div class="section">
+                <div class="section__header">
+                    <h1 class="section__title">{{ _('Maps') }}</h1>
+                </div>
+                <div class="section__body">
+                    {{maps|dump}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
