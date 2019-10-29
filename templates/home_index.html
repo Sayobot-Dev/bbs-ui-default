@@ -9,12 +9,54 @@
 {% block content %}
     <div class="row">
         <div class="medium-9 columns">
-            <div class="section">
+            <div class="section page--contest_main visible">
                 <div class="section__header">
                     <h1 class="section__title">{{ _('Maps') }}</h1>
                 </div>
                 <div class="section__body">
-                    {{maps|dump}}
+                    {% for map in maps %}
+                        <ol class="section__list contest__list">
+                            <li class="section__list__item contest__item contest-type--oi">
+                                <div class="media">
+                                    <div class="media__left medium">
+                                        <div class="contest__date numbox">
+                                            <div class="numbox__num large">
+                                                <span class="time">{{ map.lastUpdate.getUTCDay() }}</span></div>
+                                            <div class="numbox__text">
+                                                <span class="time">{{ map.lastUpdate.getUTCFullYear() }}-{{ map.lastUpdate.getUTCMonth() }}</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="media__body medium">
+                                        <h1 class="contest__title">
+                                            <a href="/download/{{ map._id.toHexString() }}" data-emoji-enabled>{{ map.titleU }}</a>
+                                        </h1>
+                                        <ul class="supplementary list">
+                                            {% for mode in map.modes %}
+                                                <li>
+                                                    <a href="/wiki/mode/{{ mode }}" class="contest-type-tag">
+                                                        <span class="icon icon-{{ mode }}"></span>{{ MODE_NAME[mode] }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="medium-3 columns">
+            <div class="section side visible">
+                <div class="section__header">
+                    <h1 class="section__title">{{ _('Fetch New Map') }}</h1>
+                </div>
+                <div class="section__body">
+                    <form method="post" action="/add">
+                        <input name="url" type="text" class="textbox" value="" placeholder="https://osu.ppy.sh/beatmapsets/233333">
+                        <button type="submit" class="primary button">{{ _('Go!') }}</button>
+                    </form>
                 </div>
             </div>
         </div>
